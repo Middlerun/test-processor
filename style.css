@@ -1,0 +1,57 @@
+body {
+  background-color: #333;
+  color: white;
+  margin: 0 20px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.CodeMirror {
+  height: 100%;
+}
+
+.main-grid {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto 1fr 1fr auto;
+  grid-gap: 20px;
+}
+
+.code-input-container {
+  grid-column: span 2;
+}
+
+.text-input-container {
+  grid-column: span 3;
+}
+
+.code-input-container, .text-input-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.title-row {
+  grid-column: 1 / -1;
+}
+
+.submit-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.submit-row > div {
+  display: inline-block;
+}
+
+.submit-save > * + * {
+  margin-left: 20px;
+}
+
+.error-message {
+  color: red;
+}
