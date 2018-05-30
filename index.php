@@ -8,6 +8,13 @@
 
   // Constants
   $SAVE_FILE = "saved_scripts.json";
+  $DEFAULTS = [
+    'first' => "",
+    'each' => "",
+    'last' => "",
+    'input' => "a\tfoo\nn\tbar",
+    'output' => "",
+  ];
 
   // Read in POST data
   $first = $_POST['first'];
@@ -19,6 +26,18 @@
   $output = "";
   $save_error = null;
   $load_error = null;
+
+  // Set defaults
+  if (!$_POST['submitted']) {
+    $first = "// Code that is executed at the start\n\n" .
+      "echo \"\\\$example = [\" . PHP_EOL;";
+    $each = "// Code that is executed for each input line\n\n" .
+      "\$elements = explode(\"\\t\", \$line);\n" .
+      "echo \"  '{\$elements[0]}' => \\\"{\$elements[1]}\\\"\" . PHP_EOL;";
+    $last = "// Code that is executed at the end\n\n" .
+      "echo \"];\";";
+    $input = "a\tfoo\nb\tbar";
+  }
 
   // Get saved scripts
   $saved_scripts_json = file_get_contents($SAVE_FILE);
@@ -105,6 +124,7 @@
       <div class="main-grid">
         <div class="title-row">
           <h1>Text Processor</h1>
+          <span><a href="https://github.com/Middlerun/text-processor" target="_blank">Made by Middlerun</a></span>
         </div>
 
         <div class="code-input-container">
@@ -170,6 +190,7 @@
           </div>
         </div>
       </div>
+      <input type="hidden" name="submitted" value="true"/>
     </form>
 
     <script>

@@ -6,12 +6,17 @@ body {
 }
 
 h1 {
-  margin-bottom: 0;
+  display: inline-block;
+  margin: 0;
 }
 
 h2 {
   margin-bottom: 10px;
   font-family: 'IBM Plex Mono', monospace;
+}
+
+a {
+  color: #9af;
 }
 
 .CodeMirror {
@@ -41,6 +46,9 @@ h2 {
 
 .title-row {
   grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
 }
 
 .submit-row {
