@@ -1,4 +1,12 @@
 <?php
+  /*
+   * Text Processor
+   * A tool for processing text using PHP code typed directly into the browser.
+   * Due to the use of eval() I would not recommend hosting this publicly,
+   * unless you want your server to be hacked.
+   */
+
+  // Constants
   $SAVE_FILE = "saved_scripts.json";
 
   // Read in POST data
@@ -90,9 +98,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/xml/xml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/clike/clike.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/mode/php/php.min.js"></script>
-    <style>
-
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|IBM+Plex+Mono" rel="stylesheet">
   </head>
   <body>
     <form method="post">
