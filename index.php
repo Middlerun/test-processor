@@ -50,7 +50,11 @@
 
   // Save script
   if ($_POST['save']) {
-    if (strlen($save_name) > 0) {
+    if (strlen($first) > 100000 || strlen($first) > 100000 || strlen($first) > 100000) {
+      $save_error = "Script is too big.";
+    } elseif (count($saved_scripts) >= 100) {
+      $save_error = "Too many saved scripts. Delete one before saving.";
+    } elseif (strlen($save_name) > 0) {
       $new_saved_scripts = $saved_scripts;
       $new_saved_scripts[$save_name] = [
         'first' => $first,
@@ -61,10 +65,10 @@
       if ($saved) {
         $saved_scripts = $new_saved_scripts;
       } else {
-        $save_error = "Unable to write save file";
+        $save_error = "Unable to write save file.";
       }
     } else {
-      $save_error = "Save name invalid";
+      $save_error = "Save name invalid.";
     }
   }
 
@@ -76,7 +80,7 @@
       $each = $script_to_load['each'];
       $last = $script_to_load['last'];
     } else {
-      $load_error = "Unable to load script \"" . htmlentities($load_name) . "\"";
+      $load_error = "Unable to load script \"" . htmlentities($load_name) . "\".";
     }
   } elseif ($_POST['delete']) {
     // Delete script
@@ -87,7 +91,7 @@
       if ($deleted) {
         $saved_scripts = $new_saved_scripts;
       } else {
-        $load_error = "Couldn't delete script \"" . htmlentities($load_name) . "\" - unable to write save file";
+        $load_error = "Couldn't delete script \"" . htmlentities($load_name) . "\" - unable to write save file.";
       }
     }
   } else {
