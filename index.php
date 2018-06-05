@@ -30,10 +30,10 @@
   // Set defaults
   if (!$_POST['submitted']) {
     $first = "// Code that is executed at the start\n\n" .
-      "echo \"\\\$example = [\" . PHP_EOL;";
+      "echo \"let example = [\" . PHP_EOL;";
     $each = "// Code that is executed for each input line\n\n" .
       "\$elements = explode(\"\\t\", \$line);\n" .
-      "echo \"  '{\$elements[0]}' => \\\"{\$elements[1]}\\\"\" . PHP_EOL;";
+      "echo \"  {\$elements[0]}: '{\$elements[1]}',\" . PHP_EOL;";
     $last = "// Code that is executed at the end\n\n" .
       "echo \"];\";";
     $input = "a\tfoo\nb\tbar";
